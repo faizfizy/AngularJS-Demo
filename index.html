@@ -20,8 +20,20 @@
                     <div class="form-group">
                         <input ng-model="query" type="text" class="form-control" placeholder="Search for heroes" autofocus>
                     </div>
+                    <div class="form-group">
+                        <label>Sort by: </label>
+                        <select ng-model="order">
+                            <option value="nickname">Nickname</option>
+                            <option value="name">Name</option>
+                        </select>
+
+                        <input ng-model="direction" type="radio" name="direction" checked>
+                        <label>Ascending</label>
+                        <input ng-model="direction" type="radio" name="direction" value="reverse">
+                        <label>Descending</label>
+                    </div>
                     <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="item in hero | filter: query">
+                        <li class="list-group-item" ng-repeat="item in hero | filter: query | orderBy: order:direction">
                             <img ng-src="images/{{item.imagename}}.png" alt="Photo of {{nickname}}">
                             <div>
                                 <h2>{{item.nickname | uppercase}}</h2>
