@@ -10,16 +10,28 @@
 </head>
 
 <div class="container">
-    <div ng-controller="MyController">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="item in hero">
-                <img ng-src="images/{{item.imagename}}.png" alt="Photo of {{nickname}}">
-                <div>
-                    <h2>{{item.nickname | uppercase}}</h2>
-                    <h3>{{item.name}}</h3>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1>Dota 2 Heroes</h1>
+            </div>
+            <div class="jumbotron">
+                <div ng-controller="MyController">
+                    <div class="form-group">
+                        <input ng-model="query" type="text" class="form-control" placeholder="Search for heroes" autofocus>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="item in hero | filter: query">
+                            <img ng-src="images/{{item.imagename}}.png" alt="Photo of {{nickname}}">
+                            <div>
+                                <h2>{{item.nickname | uppercase}}</h2>
+                                <h3>{{item.name}}</h3>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
 </div>
 
