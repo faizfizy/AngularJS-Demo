@@ -1,6 +1,6 @@
-var myApp = angular.module('myApp', []);
+var heroControllers = angular.module('heroControllers', []);
 
-myApp.controller('MyController', ['$scope', '$http', function ($scope, $http) {
+heroControllers.controller('MyController', ['$scope', '$http', function ($scope, $http) {
 
     $http.get('js/data.json').then(function (response) {
         $scope.hero = response.data;
