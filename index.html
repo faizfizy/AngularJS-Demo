@@ -15,7 +15,7 @@
             <li class="list-group-item" ng-repeat="item in hero">
                 <img ng-src="images/{{item.imagename}}.png" alt="Photo of {{nickname}}">
                 <div>
-                    <h2>{{item.nickname}}</h2>
+                    <h2>{{item.nickname | uppercase}}</h2>
                     <h3>{{item.name}}</h3>
                 </div>
             </li>
